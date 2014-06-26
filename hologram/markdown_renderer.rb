@@ -53,6 +53,16 @@ class MarkdownRenderer < Redcarpet::Render::HTML
     "<hr class='sg-hr'>"
   end
 
+  #em要素
+  def emphasis(text)
+    "<em class='sg-text-italic'>#{text}</em>"
+  end
+
+  #strong要素
+  def double_emphasis(text)
+    "<strong class='sg-text-bold'>#{text}</strong>"
+  end
+
   #a要素
   def link(link, title, content)
     "<a class='sg-textLink' href='#{link}' title='#{title}'>#{content}</a>"

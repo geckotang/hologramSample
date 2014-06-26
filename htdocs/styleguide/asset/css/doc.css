@@ -241,6 +241,14 @@
   text-decoration: underline;
 }
 
+/*文字の装飾*/
+.sg-text-italic {
+  font-style: italic;
+}
+.sg-text-bold {
+  font-weight: bold;
+}
+
 /*画像*/
 .sg-image {
   border: 0;

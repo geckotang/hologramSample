@@ -43,7 +43,7 @@ Lorem ipsizzle shizznit ``sizzle`` amet, that's the shizzle adipiscing bow wow w
 
 ## 文字のスタイル
 
-``.sg-text-itaric``
+``.sg-text-italic``
 
 The quick *brown* fox jumps over the lazy dog.
 
