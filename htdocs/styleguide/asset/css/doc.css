@@ -248,6 +248,10 @@
 .sg-text-bold {
   font-weight: bold;
 }
+.sg-text-bolditalic {
+  font-weight: bold;
+  font-style: italic;
+}
 
 /*画像*/
 .sg-image {

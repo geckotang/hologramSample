@@ -55,12 +55,17 @@ class MarkdownRenderer < Redcarpet::Render::HTML
 
   #em要素
   def emphasis(text)
-    "<em class='sg-text-italic'>#{text}</em>"
+    "<span class='sg-text-italic'>#{text}</span>"
   end
 
   #strong要素
   def double_emphasis(text)
-    "<strong class='sg-text-bold'>#{text}</strong>"
+    "<span class='sg-text-bold'>#{text}</span>"
+  end
+
+  #下線
+  def triple_emphasis(text)
+    "<span class='sg-text-bolditalic'>#{text}</span>"
   end
 
   #a要素
