@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>My Style Guide <%= title %></title>
+
+    <!-- Styleguide CSS -->
+    <link rel="stylesheet" href="./asset/css/doc.css">
+    <link rel="stylesheet" href="./asset/css/github.css">
+
+    <!-- CSS to be documented -->
+    <link rel="stylesheet" href="/common/css/screen.css">
+
+    <!-- Main libraries -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+
+</head>
+<body class="sg-dispatch__<%= file_name %>">
+<div class="sg-gLayout">
+
+
+  <div class="sg-gLayout__header">
+    <div class="sg-header">
+      <div class="sg-header__title">My StyleGuide</div>
+      <div class="sg-header__content">
+        <div class="sg-categorySelect">
+          <ul class="sg-categorySelect__list">
+            <% if file_name == "index.html" then %>
+            <li class="sg-categorySelect__item  sg-categorySelect__item--is-current">
+            <% else %>
+            <li class="sg-categorySelect__item">
+            <% end %>
+              <a href="index.html">TOP</a>
+            </li>
+            <% @categories.each do |category| %>
+            <% if category[1] == file_name then %>
+            <li class="sg-categorySelect__item  sg-categorySelect__item--is-current">
+            <% else %>
+            <li class="sg-categorySelect__item">
+            <% end %>
+              <a href="<%= category[1] %>"><%= category[0] %></a>
+            </li>
+            <% end %>
+          </ul>
+        <!-- /.sg-categorySelect --></div>
+      </div>
+    </div>
+  <!-- /.sg-gLayout__header --></div>
+
+
+  <% if !@blocks.empty? %>
+  <div class="sg-gLayout__subcategory">
+    <div class="sg-subCategorySelect">
+      <ul class="sg-subCategorySelect__list">
+        <% @blocks.each do |block| %>
+        <li class="sg-subCategorySelect__item"><a href="#<%= block[:name] %>"><%= block[:title] %></a></li>
+        <% end %>
+      </ul>
+    <!-- /.sg-subCategorySelect --></div>
+  <!-- /.sg-gLayout__subcategory --></div>
+  <% end %>
+
+  <div class="sg-gLayout__main">
+    <% if title != "" %>
+      <!--カテゴリタイトル-->
+    <% else %>
+      <% if file_name == "index.html" %>
+      <!--スタイルガイドトップ-->
+      <% end %>
+    <% end %>
+    <div class="sg-blockExpContainer">
