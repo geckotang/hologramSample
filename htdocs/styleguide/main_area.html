@@ -1,21 +1,34 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7 ]><html lang="ja" class="ie6 no-js"><![endif]-->
+<!--[if IE 7 ]><html lang="ja" class="ie7 no-js"><![endif]-->
+<!--[if IE 8 ]><html lang="ja" class="ie8 no-js"><![endif]-->
+<!--[if IE 9 ]><html lang="ja" class="ie9 no-js"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="ja">
+<!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="format-detection" content="email=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>My Style Guide Main area</title>
+    <title>Main area | MY STYLEGUIDE</title>
 
     <!-- Styleguide CSS -->
     <link rel="stylesheet" href="./asset/css/doc.css">
     <link rel="stylesheet" href="./asset/css/github.css">
 
     <!-- CSS to be documented -->
-    <link rel="stylesheet" href="../common/css/screen.css">
+    <link rel="stylesheet" href="/common2/css/style.css">
+    <!-- JS to be documented -->
+    <!--[if lt IE 9]><script src="/common2/js/html5shiv.js"></script><![endif]-->
+    <script src="/common2/js/modernizr.custom.js"></script>
+    <script src="/common2/js/lib.min.js"></script>
+    <script src="/common2/js/script.min.js"></script>
 
-    <!-- Main libraries -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+    <!-- Styleguide JS -->
+    <script src="./asset/js/doc.js"></script>
 
 </head>
 <body class="sg-dispatch__main_area.html">
@@ -24,7 +37,7 @@
 
   <div class="sg-gLayout__header">
     <div class="sg-header">
-      <div class="sg-header__title">My StyleGuide</div>
+      <div class="sg-header__title">MY STYLEGUIDE</div>
       <div class="sg-header__content">
         <div class="sg-categorySelect">
           <ul class="sg-categorySelect__list">
@@ -47,29 +60,75 @@
             </li>
             
           </ul>
+          <div class="sg-categorySelect__select">
+            <div class="sg-categorySelect__select-heading">カテゴリ</div>
+            <select class="sg-selectLink">
+              
+              
+              <option value="main_area.html" selected>
+              
+                Main area</option>
+              
+              
+              <option value="スーパー日本語desu.html">
+              
+                スーパー日本語DESU</option>
+              
+            <!-- /.sg-selectLink --></select>
+          </div>
         <!-- /.sg-categorySelect --></div>
       </div>
     </div>
   <!-- /.sg-gLayout__header --></div>
 
 
-  
   <div class="sg-gLayout__subcategory">
+  
     <div class="sg-subCategorySelect">
       <ul class="sg-subCategorySelect__list">
         
-        <li class="sg-subCategorySelect__item"><a href="#block1">block1</a></li>
+          
+          <li class="sg-subCategorySelect__item-parent"><a href="#block1">block1</a>
+          
         
-        <li class="sg-subCategorySelect__item"><a href="#block1_skin1">block1のスキン</a></li>
+          
+          <li class="sg-subCategorySelect__item-child"><a href="#block1_skin1">block1のスキン</a>
+          
         
-        <li class="sg-subCategorySelect__item"><a href="#block2">block2</a></li>
+          
+          <li class="sg-subCategorySelect__item-parent"><a href="#block2">block2</a>
+          
         
-        <li class="sg-subCategorySelect__item"><a href="#zudoTest">zudo test</a></li>
+          
+          <li class="sg-subCategorySelect__item-parent"><a href="#zudoTest">zudo test</a>
+          
         
       </ul>
+      <div class="sg-subCategorySelect__select">
+        <div class="sg-subCategorySelect__select-heading">サブカテゴリ</div>
+        <select class="sg-selectLink">
+        
+          
+          <option value="#block1">block1</option>
+          
+        
+          
+          <option value="#block1_skin1">- block1のスキン</option>
+          
+        
+          
+          <option value="#block2">block2</option>
+          
+        
+          
+          <option value="#zudoTest">zudo test</option>
+          
+        
+        <!-- /.sg-selectLink --></select>
+      </div>
     <!-- /.sg-subCategorySelect --></div>
-  <!-- /.sg-gLayout__subcategory --></div>
   
+  <!-- /.sg-gLayout__subcategory --></div>
 
   <div class="sg-gLayout__main">
     
@@ -89,16 +148,16 @@
 
           </div>
           <div class='sg-codeBlock__code' data-lang='html'>
-            <div class="highlight"><pre>  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;btn btnDefault&quot;</span><span class="nt">&gt;</span>Click<span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;btn btnDefault&quot;</span> <span class="na">href=</span><span class="s">&quot;http://example.com&quot;</span><span class="nt">&gt;</span>Don&#39;t click<span class="nt">&lt;/a&gt;</span>
-</pre></div>
+              <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btnDefault"</span><span class="nt">&gt;</span>Click<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btnDefault"</span> <span class="na">href=</span><span class="s">"http://example.com"</span><span class="nt">&gt;</span>Don't click<span class="nt">&lt;/a&gt;</span>
+
           </div>
         </div>
         
       <div class='sg-codeBlock'>
         <div class='sg-codeBlock__code'>
-          <div class="highlight"><pre>  <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;width:30px;height:30px;border:3px solid red;text-align:center&quot;</span><span class="nt">&gt;</span>!<span class="nt">&lt;/div&gt;</span>
-</pre></div>
+            &lt;div style="width:30px;height:30px;border:3px solid red;text-align:center"&gt;!&lt;/div&gt;
+
         </div>
       </div>
       
@@ -106,8 +165,8 @@
 <p class='sg-paragraph'>  This is a skin of block1.</p>
       <div class='sg-codeBlock'>
         <div class='sg-codeBlock__code'>
-          <div class="highlight"><pre>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;block1 skin&quot;</span><span class="nt">&gt;</span>!<span class="nt">&lt;/div&gt;</span>
-</pre></div>
+            &lt;div class="block1 skin"&gt;!&lt;/div&gt;
+
         </div>
       </div>
       
@@ -128,15 +187,15 @@
 </script>
         <div class='sg-codeBlock'>
           <div class='sg-codeBlock__code  jsExample' data-lang='javascript'>
-            <div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-awesome&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-      <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Awesome!&#39;</span><span class="p">);</span>
+              <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.js-awesome'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">alert</span><span class="p">(</span><span class="s1">'Awesome!'</span><span class="p">);</span>
     <span class="p">});</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-no-click&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.js-no-click'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
       <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
     <span class="p">});</span>
   <span class="p">});</span>
-</pre></div>
+
           </div>
         </div>
         
@@ -147,9 +206,9 @@
 
           </div>
           <div class='sg-codeBlock__code' data-lang='html'>
-            <div class="highlight"><pre>  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;btn btnDefault js-awesome&quot;</span><span class="nt">&gt;</span>Click<span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;btn btnDefault js-no-click&quot;</span> <span class="na">href=</span><span class="s">&quot;http://example.com&quot;</span><span class="nt">&gt;</span>Don&#39;t click<span class="nt">&lt;/a&gt;</span>
-</pre></div>
+              <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btnDefault js-awesome"</span><span class="nt">&gt;</span>Click<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btnDefault js-no-click"</span> <span class="na">href=</span><span class="s">"http://example.com"</span><span class="nt">&gt;</span>Don't click<span class="nt">&lt;/a&gt;</span>
+
           </div>
         </div>
         
@@ -157,8 +216,8 @@
 
       <div class='sg-codeBlock'>
         <div class='sg-codeBlock__code'>
-          <div class="highlight"><pre>  <span class="n">zudo</span> <span class="n">example</span>
-</pre></div>
+            zudo example
+
         </div>
       </div>
       
