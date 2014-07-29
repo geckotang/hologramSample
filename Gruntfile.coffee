@@ -29,10 +29,11 @@ module.exports = (grunt) ->
       hologram:
         options:
           stdout: true
+          stderr: true
         command: 'bundle exec hologram hologram/config.yml'
 
     clean:
-      hologram_output: [ 'docs' ]
+      hologram_output: [ 'htdocs/styleguide' ]
 
     watch:
       compass:
