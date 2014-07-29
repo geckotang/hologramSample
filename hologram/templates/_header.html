@@ -1,21 +1,34 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7 ]><html lang="ja" class="ie6 no-js"><![endif]-->
+<!--[if IE 7 ]><html lang="ja" class="ie7 no-js"><![endif]-->
+<!--[if IE 8 ]><html lang="ja" class="ie8 no-js"><![endif]-->
+<!--[if IE 9 ]><html lang="ja" class="ie9 no-js"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="ja">
+<!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="format-detection" content="email=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>My Style Guide <%= title %></title>
+    <title><%= title %> | <%= @config['sitename'] %></title>
 
     <!-- Styleguide CSS -->
     <link rel="stylesheet" href="./asset/css/doc.css">
     <link rel="stylesheet" href="./asset/css/github.css">
 
     <!-- CSS to be documented -->
-    <link rel="stylesheet" href="../common/css/screen.css">
+    <link rel="stylesheet" href="/common2/css/style.css">
+    <!-- JS to be documented -->
+    <!--[if lt IE 9]><script src="/common2/js/html5shiv.js"></script><![endif]-->
+    <script src="/common2/js/modernizr.custom.js"></script>
+    <script src="/common2/js/lib.min.js"></script>
+    <script src="/common2/js/script.min.js"></script>
 
-    <!-- Main libraries -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+    <!-- Styleguide JS -->
+    <script src="./asset/js/doc.js"></script>
 
 </head>
 <body class="sg-dispatch__<%= file_name %>">
@@ -24,7 +37,7 @@
 
   <div class="sg-gLayout__header">
     <div class="sg-header">
-      <div class="sg-header__title">My StyleGuide</div>
+      <div class="sg-header__title"><%= @config['sitename'] %></div>
       <div class="sg-header__content">
         <div class="sg-categorySelect">
           <ul class="sg-categorySelect__list">
@@ -45,23 +58,52 @@
             </li>
             <% end %>
           </ul>
+          <div class="sg-categorySelect__select">
+            <div class="sg-categorySelect__select-heading">カテゴリ</div>
+            <select class="sg-selectLink">
+              <% @categories.each do |category| %>
+              <% if category[1] == file_name then %>
+              <option value="<%= category[1] %>" selected>
+              <% else %>
+              <option value="<%= category[1] %>">
+              <% end %>
+                <%= category[0] %></option>
+              <% end %>
+            <!-- /.sg-selectLink --></select>
+          </div>
         <!-- /.sg-categorySelect --></div>
       </div>
     </div>
   <!-- /.sg-gLayout__header --></div>
 
 
-  <% if !@blocks.empty? %>
   <div class="sg-gLayout__subcategory">
+  <% if !@blocks.empty? %>
     <div class="sg-subCategorySelect">
       <ul class="sg-subCategorySelect__list">
         <% @blocks.each do |block| %>
-        <li class="sg-subCategorySelect__item"><a href="#<%= block[:name] %>"><%= block[:title] %></a></li>
+          <% if block[:parent] %>
+          <li class="sg-subCategorySelect__item-child"><a href="#<%= block[:name] %>"><%= block[:title] %></a>
+          <% else %>
+          <li class="sg-subCategorySelect__item-parent"><a href="#<%= block[:name] %>"><%= block[:title] %></a>
+          <%end%>
         <% end %>
       </ul>
+      <div class="sg-subCategorySelect__select">
+        <div class="sg-subCategorySelect__select-heading">サブカテゴリ</div>
+        <select class="sg-selectLink">
+        <% @blocks.each do |block| %>
+          <% if block[:parent] %>
+          <option value="#<%= block[:name] %>">- <%= block[:title] %></option>
+          <% else %>
+          <option value="#<%= block[:name] %>"><%= block[:title] %></option>
+          <%end%>
+        <% end %>
+        <!-- /.sg-selectLink --></select>
+      </div>
     <!-- /.sg-subCategorySelect --></div>
-  <!-- /.sg-gLayout__subcategory --></div>
   <% end %>
+  <!-- /.sg-gLayout__subcategory --></div>
 
   <div class="sg-gLayout__main">
     <% if title != "" %>
