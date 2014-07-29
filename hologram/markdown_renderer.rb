@@ -48,6 +48,11 @@ class MarkdownRenderer < Redcarpet::Render::HTML
     end
   end
 
+  #hN要素
+  def header(text, header_level)
+    "<h#{header_level} class='sg-headingV#{header_level}'>#{text}</h#{header_level}>"
+  end
+
   #hr要素
   def hrule()
     "<hr class='sg-hr'>"
