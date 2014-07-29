@@ -5,7 +5,7 @@ class MarkdownRenderer < Redcarpet::Render::HTML
     formatter = Rouge::Formatters::HTML.new(wrap: false)
 
     if language.include?('js')
-      lexer = Rouge::Lexer.find('js')
+      lexer = Rouge::Lexer.find('javascript')
       lang = 'javascript'
     elsif language.include?('html')
       lexer = Rouge::Lexer.find('html')
@@ -25,7 +25,7 @@ class MarkdownRenderer < Redcarpet::Render::HTML
         <script>#{code}</script>
         <div class='sg-codeBlock'>
           <div class='sg-codeBlock__code  jsExample' data-lang='#{lang}'>
-            #{formatter.format(lexer.lex(code))}
+            <div class='highlight'><pre>#{formatter.format(lexer.lex(code))}</pre></div>
           </div>
         </div>
         "
@@ -33,22 +33,17 @@ class MarkdownRenderer < Redcarpet::Render::HTML
         #コードとプレビュー
         "
         <div class='sg-codeBlock'>
-          <div class='sg-codeBlock__preview'>
-            #{render_html(code, language)}
-          </div>
-          <div class='sg-codeBlock__code' data-lang='#{lang}'>
-            #{formatter.format(lexer.lex(code))}
-          </div>
+          <div class='sg-codeBlock__preview'>#{render_html(code, language)}</div>
+          <div class='sg-codeBlock__code' data-lang='#{lang}'><div class='highlight'><pre>#{formatter.format(lexer.lex(code))}</pre></div></div>
         </div>
         "
       end
     else
       #コードのみ
-      lexer = Rouge::Lexer.find_fancy('guess', code)
       "
       <div class='sg-codeBlock'>
         <div class='sg-codeBlock__code'>
-          #{formatter.format(lexer.lex(code))}
+          <div class='highlight'><pre>#{formatter.format(lexer.lex(code))}</pre></div>
         </div>
       </div>
       "
